@@ -17,25 +17,23 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 600, titleBarStyle: 'hidden' });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  mainWindow.on('closed', () => { mainWindow = null; });
-
-  // Open the DevTools.
   // mainWindow.webContents.openDevTools();
-
-  app.on('ready', createWindow);
-
-  app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-      app.quit();
-    }
-  });
-
-  app.on('activate', () => {
-    if (mainWindow === null) {
-      createWindow();
-    }
-  });
+  mainWindow.on('closed', () => { mainWindow = null; });
 }
+
+app.on('ready', createWindow);
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+app.on('activate', () => {
+  if (mainWindow === null) {
+    createWindow();
+  }
+});
 
 
 // In this file you can include the rest of your app's specific main process

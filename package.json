@@ -1,36 +1,29 @@
 {
   "name": "tracribe_react",
   "description": "Desktop utility app to track personal subscriptions",
-  "author": {
-    "name": "Roy Prigat"
-  },
+  "author": "Roy Prigat",
   "version": "0.1.0",
   "private": true,
-  "main": "src/electron-starter.js",
+  "main": "public/electron.js",
   "homepage": "./",
-  "build": {
-    "appId": "com.electron.${name}",
-    "mac": {
-      "icon": "build/app-icon.icns",
-      "target": "dmg"
-    },
-    "productName": "$(name)",
-    "copyright": "Copyright © year ${author}",
-    "directories": {
-      "buildResources": "build",
-      "output": "dist"
-    }
-  },
   "scripts": {
-    "react-dev": "BROWSER=none react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "electron": "electron .",
-    "start": "concurrently 'npm run react-dev' 'wait-on http://localhost:3000/ && npm run electron-dev'",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "electron-dev": "concurrently \"BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "preelectron-pack": "npm run build",
+    "electron-pack": "build"
+  },
+  "build": {
+    "appId": "com.electron.tracribe",
+    "productName": "Tracribe",
+    "mac": {
+      "icon": "build/icon.icns"
+    },
+    "dmg": {
+      "icon": "build/icon.icns"
+    }
   },
   "dependencies": {
     "electron-is-dev": "^0.3.0",
