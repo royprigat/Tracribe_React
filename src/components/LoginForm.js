@@ -14,7 +14,9 @@ class LoginForm extends React.Component {
         username: '', 
         password: '',
         userError: false,
-        passError: false 
+        passError: false,
+        userPlaceHold: 'Username',
+        passPlaceHold: 'Password'
     };
 
     this.validateForm = this.validateForm.bind(this);
@@ -23,11 +25,13 @@ class LoginForm extends React.Component {
 
   validateForm(e) {
     e.preventDefault();
+    this.setState({ userError: false, passError: false });
     if (e.target.username.value !== username) {
-      this.setState({ username: '', userError: true});
-    }
-    if (e.target.password.value !== password) {
-      this.setState({ password: '' });
+      this.setState({ username: '', userError: true });
+    } else if (e.target.password.value !== password) {
+      this.setState({ password: '', passError: true });
+    } else {
+        this.props.onLogin()
     }
   }
 
@@ -58,21 +62,23 @@ class LoginForm extends React.Component {
                   name="username"
                   icon="user"
                   iconPosition="left"
-                  placeholder="Username"
+                  placeholder={this.state.userPlaceHold}
                   value={this.state.username}
                   onChange={this.handleChange}
-                  error={this.userError}  
+                  error={this.state.userError}
+                  focus={this.state.userError}
                 />
                 <Form.Input
                   fluid
                   name="password"
                   icon="lock"
                   iconPosition="left"
-                  placeholder="Password"
+                  placeholder={this.state.passPlaceHold}
                   type="password"
                   value={this.state.password}
                   onChange={this.handleChange}
-                  error={this.passError}
+                  error={this.state.passError}
+                  focus={this.state.passError}
                 />
 
                 <Form.Button color="linkedin" fluid size="large" content="submit">Login</Form.Button>

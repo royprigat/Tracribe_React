@@ -4,7 +4,7 @@ import '../css/Content.css';
 function Content() {
   return (
     <div className="content">
-        Hello
+        <p> Welcome </p>
     </div>
   );
 }
