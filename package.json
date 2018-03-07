@@ -1,0 +1,34 @@
+{
+  "name": "tracribe_react",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/electron-starter.js",
+  "homepage": "./",
+  "scripts": {
+    "react-dev": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "electron": "electron .",
+    "start": "concurrently 'npm run react-dev' 'wait-on http://localhost:3000/ && npm run electron-dev'"
+  },
+  "dependencies": {
+    "electron": "^1.8.3",
+    "express": "^4.16.2",
+    "pg": "^7.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.1",
+    "semantic-ui-css": "^2.3.0",
+    "semantic-ui-react": "^0.78.3"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.7.0",
+    "wait-on": "^2.1.0"
+  }
+}
