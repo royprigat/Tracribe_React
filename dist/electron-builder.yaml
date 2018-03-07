@@ -1,0 +1,15 @@
+directories:
+  output: dist
+  buildResources: build
+files:
+  - build/**/*
+extraMetadata:
+  main: build/electron.js
+appId: 'com.electron.${name}'
+mac:
+  icon: build/app-icon.icns
+  target: dmg
+productName: $(name)
+copyright: 'Copyright © year ${author}'
+extends: react-cra
+electronVersion: 1.8.3
