@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Grid, Segment } from 'semantic-ui-react';
+import { Form, Grid, Segment } from 'semantic-ui-react';
 import Logo from './Logo';
 import '../css/LoginForm.css';
 
@@ -14,9 +14,7 @@ class LoginForm extends React.Component {
         username: '', 
         password: '',
         userError: false,
-        passError: false,
-        userPlaceHold: 'Username',
-        passPlaceHold: 'Password'
+        passError: false
     };
 
     this.validateForm = this.validateForm.bind(this);
@@ -62,7 +60,7 @@ class LoginForm extends React.Component {
                   name="username"
                   icon="user"
                   iconPosition="left"
-                  placeholder={this.state.userPlaceHold}
+                  placeholder="Username"
                   value={this.state.username}
                   onChange={this.handleChange}
                   error={this.state.userError}
@@ -73,7 +71,7 @@ class LoginForm extends React.Component {
                   name="password"
                   icon="lock"
                   iconPosition="left"
-                  placeholder={this.state.passPlaceHold}
+                  placeholder="Password"
                   type="password"
                   value={this.state.password}
                   onChange={this.handleChange}
@@ -81,7 +79,7 @@ class LoginForm extends React.Component {
                   focus={this.state.passError}
                 />
 
-                <Form.Button color="linkedin" fluid size="large" content="submit">Login</Form.Button>
+                <Form.Button color="linkedin" fluid size="large" content="Login"></Form.Button>
               </Segment>
             </Form>
           </Grid.Column>

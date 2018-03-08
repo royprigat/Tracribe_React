@@ -2,9 +2,11 @@
 // it can get copied to the “build” folder as it is
 
 const electron = require('electron');
+const server = require('./server');
 
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
+
 
 const path = require('path');
 const url = require('url');
@@ -17,11 +19,13 @@ let mainWindow;
 function createWindow() {
   mainWindow = new BrowserWindow({ width: 900, height: 600, titleBarStyle: 'hidden' });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
   mainWindow.on('closed', () => { mainWindow = null; });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
