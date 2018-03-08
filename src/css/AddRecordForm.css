@@ -1,0 +1,9 @@
+.add-record-form {
+    width: 200px;
+    height: 350px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: 1px solid rgb(240, 240, 240);
+    background: white;
+}

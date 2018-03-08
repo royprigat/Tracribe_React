@@ -16,7 +16,7 @@ class App extends Component {
     const isLoggedIn = this.state.loggedIn;
     return (
       <div className="container">
-        {isLoggedIn ? (
+        {true ? (
           <div>
             <Sidenav />
             <Content />
