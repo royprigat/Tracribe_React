@@ -8,7 +8,10 @@ class AddRecordForm extends React.Component {
     this.state = { 
         user: '', 
         pass: '',
-        title: ''
+        title: '',
+        titleError: false, 
+        userError: false, 
+        passError: false
     };
 
     this.validateForm = this.validateForm.bind(this);
@@ -18,14 +21,25 @@ class AddRecordForm extends React.Component {
 
   validateForm(e) {
     e.preventDefault();
+    this.setState({ titleError: false, userError: false, passError: false });
+    if (e.target.user.value === '') {
+      this.setState({ userError: true });
+    } if (e.target.pass.value === '') {
+      this.setState({ passError: true });
+    } if(e.target.title.value === '') {
+      this.setState({ titleError: true});
+    }
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+  handleChange = (e,{ name, value }) => this.setState({ [name]: value });
 
   resetAll = () => this.setState({
     user: '',
     pass: '',
-    title: ''
+    title: '',
+    titleError: false, 
+    userError: false, 
+    passError: false
   });
 
   render() {
@@ -40,6 +54,7 @@ class AddRecordForm extends React.Component {
               placeholder="Enter title"
               value={this.state.title}
               onChange={this.handleChange}
+              error={this.state.titleError}
             />
           </Form.Field>
           <Form.Field>
@@ -49,7 +64,8 @@ class AddRecordForm extends React.Component {
               name="user"
               placeholder="Enter username"
               value={this.state.user}
-              onChange={this.handleChange}            
+              onChange={this.handleChange}
+              error={this.state.userError}            
             />
           </Form.Field>
           <Form.Field>
@@ -59,10 +75,11 @@ class AddRecordForm extends React.Component {
               name="pass"
               placeholder="Enter password"
               value={this.state.pass}
-              onChange={this.handleChange}  
+              onChange={this.handleChange}
+              error={this.state.passError}  
             />
           </Form.Field>
-          <Button type='submit' color='teal' style={{ width: '100px', marginLeft: '8px', marginTop: '15px' }}>Add</Button>
+          <Button type='submit' color='teal' style={{ width: '100px', marginLeft: '10px', marginTop: '15px' }}>Add</Button>
           <Button icon onClick={this.resetAll} style={{ width: '50px', marginLeft: '3px', marginTop: '15px' }}><Icon name="repeat" /></Button>
         </Form>
       </Segment>

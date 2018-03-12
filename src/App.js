@@ -17,14 +17,13 @@ class App extends Component {
     return (
       <div className="container">
         {true ? (
-          <div>
+          <div className="main">
             <Sidenav />
             <Content />
           </div>
           ) : (
             <LoginForm onLogin={this.onLogin}/>
       )}
-
       </div>
     );
   }
