@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from './components/LoginForm';
 import Sidenav from './components/Sidenav';
-import Content from './components/Content';
+import Records from './components/Records';
 import './css/App.css';
 
 class App extends Component {
@@ -19,7 +19,7 @@ class App extends Component {
         {true ? (
           <div className="main">
             <Sidenav />
-            <Content />
+            <Records />
           </div>
           ) : (
             <LoginForm onLogin={this.onLogin}/>

@@ -8,6 +8,6 @@ server.use((req, res, next) => {
   next();
 });
 
-server.get('/', (req, res, next) => res.send({ message: 'Hello World' }));
+server.get('/', (req, res) => res.send({ message: 'Hello World' }));
 
 server.listen(9999, () => console.log('Server listening on port 6000...'));

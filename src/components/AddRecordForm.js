@@ -1,5 +1,6 @@
 import React from 'react';
 import { Segment, Form, Button, Icon } from 'semantic-ui-react';
+import submitForm from '../js/coreBackend';
 import '../css/AddRecordForm.css';
 
 class AddRecordForm extends React.Component {
@@ -33,18 +34,20 @@ class AddRecordForm extends React.Component {
 
   handleChange = (e,{ name, value }) => this.setState({ [name]: value });
 
-  resetAll = () => this.setState({
+  resetAll = (e) => (
+    e.preventDefault(),
+    this.setState({
     user: '',
     pass: '',
     title: '',
     titleError: false, 
     userError: false, 
     passError: false
-  });
+  }));
 
   render() {
     return (
-      <Segment padded style={{ width: '220px', height: '330px', margin: '0 auto', marginTop: '30px' }} >
+      <Segment raised padded style={{ width: '220px', height: '330px', margin: '0 auto', marginTop: '30px' }} >
         <Form onSubmit={this.validateForm} style={{ width: '100%', margin: '0 auto'}}>
           <Form.Field>
             <label>Title</label>

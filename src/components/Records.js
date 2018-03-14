@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Record from './Record';
-import '../css/Content.css';
+import '../css/Records.css';
 
-class Content extends Component {
+class Records extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,13 +18,14 @@ class Content extends Component {
 
 
   render() {
-    const subscriptions = localStorage.getItem('subscriptions');
+    // const subscriptions = localStorage.getItem('subscriptions');
+    const cards = ['Google', 'Facebook'];
     return (
-      <div className="content">
+      <div className="records">
         <Record sub="Roy" />
       </div>
     );
   }
 }
 
-export default Content;
+export default Records;
