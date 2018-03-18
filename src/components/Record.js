@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card, Segment, Item, Image, Button } from 'semantic-ui-react';
+import { Grid, Card, Label, Image, Button, Icon } from 'semantic-ui-react';
 import '../css/Record.css';
 import drawing from '../img/drawing.svg';
 
@@ -13,28 +13,28 @@ class Record extends Component {
 
   render() {
     return (
-      <Grid padded centered columns={1}>
-        <Grid.Column>
-          <Card.Group>
-            <Card centered className="record">
-              <Card.Content>
-                <Image floated="right" size="mini" src={drawing} />
-                <Card.Header>
-                  Title
-                </Card.Header>
-                <Card.Meta>
-                  Added on
-                </Card.Meta>
-              </Card.Content>
-              <Card.Content extra>
-                <div className="ui two buttons">
-                  <Button basic color="red">Delete</Button>
-                </div>
-              </Card.Content>
-            </Card>
-          </Card.Group>
-        </Grid.Column>
-      </Grid>
+      <Card raised className="record">
+        <Card.Content>
+          <Card.Header>
+            {this.props.sub}
+          </Card.Header>
+          <Card.Meta>
+                  Joined on
+          </Card.Meta>
+          <Card.Description>
+            <Label.Group>
+              <Label as="a">
+                <Icon name="user" />
+                  username
+              </Label>
+              <Label as="a">
+                <Icon name="key" />
+                  password
+              </Label>
+            </Label.Group>
+          </Card.Description>
+        </Card.Content>
+      </Card>
     );
   }
 }
