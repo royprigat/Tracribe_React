@@ -4,8 +4,8 @@ import Logo from './Logo';
 import '../css/LoginForm.css';
 
 // Set username and password to the app
-const username = 'royprigat';
-const password = 'blabla';
+const username = 'admin';
+const password = 'admin';
 
 class LoginForm extends React.Component {
   constructor(props) {
