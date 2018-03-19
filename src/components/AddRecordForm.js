@@ -1,6 +1,5 @@
 import React from 'react';
 import { Segment, Form, Button, Icon } from 'semantic-ui-react';
-import submitForm from '../js/coreBackend';
 import '../css/AddRecordForm.css';
 
 class AddRecordForm extends React.Component {

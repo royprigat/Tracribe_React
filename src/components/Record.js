@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Label, Button, Icon } from 'semantic-ui-react';
+import { Card, Label, Button, Icon } from 'semantic-ui-react';
 import '../css/Record.css';
 
 

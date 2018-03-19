@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid, Card, Icon } from 'semantic-ui-react';
 import Record from './Record';
 import '../css/Records.css';
@@ -17,7 +17,7 @@ function Records(props) {
       <Grid.Column>
         <Card.Group centered>
           { subscriptions ?
-            (subscriptions.map(item => <Record sub={item} onDelete={props.onDelete} />)) :
+            (subscriptions.map((item, index) => <Record key={index} sub={item} onDelete={props.onDelete} />)) :
             (<Icon style={{ paddingTop: '20px' }} color="teal" size="large" name="smile" />)}
         </Card.Group>
       </Grid.Column>
