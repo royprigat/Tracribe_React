@@ -28,7 +28,7 @@ tracribe_react
         └── Tracribe.app
           └── Contents
             └── MacOS
-            **└── Tracribe**
+              └── Tracribe
 ```
 
 ### Login Config
