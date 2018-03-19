@@ -13,7 +13,11 @@ npm run electron-pack
 ```
 
 ## Screenshots
+
 <p align='center'>
-![alt text](screenshot2.png "Login prompt")
-![alt text](screenshot1.png "Main view")
+<img src='./screenshot2.png' alt='Login prompt'>
+</p>
+
+<p align='center'>
+<img src='./screenshot1.png' alt='Main view'>
 </p>
