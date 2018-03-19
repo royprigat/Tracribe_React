@@ -2,11 +2,17 @@ import React from 'react';
 import { Grid, Card, Label, Button, Icon } from 'semantic-ui-react';
 import '../css/Record.css';
 
+
 function Record(props) {
+  function handleClick() {
+    const title = props.sub.title;
+    props.onDelete(title);
+  }
+
   return (
     <Card raised className="record">
       <Card.Content>
-        <Button circular compact size="mini" inverted color="red" icon="delete" floated="right" />
+        <Button onClick={handleClick} circular compact size="mini" inverted color="red" icon="delete" floated="right" />
         <Card.Header>
           {props.sub.title}
         </Card.Header>

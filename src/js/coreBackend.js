@@ -53,5 +53,5 @@ function deleteSubscription(title) {
   localStorage.setItem('subscriptions', JSON.stringify(subscriptions));
 }
 
-export default { saveSubscription, deleteSubscription };
+export { saveSubscription, deleteSubscription };
 

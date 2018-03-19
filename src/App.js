@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import LoginForm from './components/LoginForm';
 import Sidenav from './components/Sidenav';
 import Records from './components/Records';
-import saveSubscription from './js/coreBackend';
+import { saveSubscription } from './js/coreBackend';
+import { deleteSubscription } from './js/coreBackend';
 import './css/App.css';
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
 
     this.onLogin = this.onLogin.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   }
 
   onLogin = () => this.setState({ loggedIn: true });
@@ -22,17 +24,20 @@ class App extends Component {
     saveSubscription(e);
     this.setState({ data: JSON.parse(localStorage.getItem('subscriptions')) });
   }
-
+  onDelete = (e) => {
+    deleteSubscription(e);
+    this.setState({ data: JSON.parse(localStorage.getItem('subscriptions')) });
+  }
 
   render() {
     const isLoggedIn = this.state.loggedIn;
     const data = this.state.data;
     return (
       <div className="container">
-        {true ? (
+        {isLoggedIn ? (
           <div className="main">
             <Sidenav onSubmit={this.onSubmit}/>
-            <Records data={data}/>
+            <Records data={data} onDelete={this.onDelete}/>
           </div>
           ) : (
             <LoginForm onLogin={this.onLogin}/>
