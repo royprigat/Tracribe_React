@@ -18,7 +18,7 @@ let mainWindow;
 
 function createWindow() {
   mainWindow = new BrowserWindow({
-    width: 800,
+    width: 700,
     height: 600,
     titleBarStyle: 'hidden',
     webPreferences: {
@@ -26,7 +26,7 @@ function createWindow() {
     },
   });
   mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
   mainWindow.on('closed', () => { mainWindow = null; });
 }
 
