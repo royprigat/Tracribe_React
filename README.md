@@ -22,13 +22,13 @@ tracribe_react
 ├── public
 ├── src
 ├── build
-├── dist
-    └── mac
+└── dist
+  └── mac
+    └── Tracribe.app
       └── Tracribe.app
-        └── Tracribe.app
-          └── Contents
-            └── MacOS
-              └── Tracribe
+        └── Contents
+          └── MacOS
+            └── Tracribe
 ```
 
 ### Login Config
