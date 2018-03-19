@@ -1,5 +1,16 @@
-Tracribe is a desktop utility app, allwoing the user to store information locally.
-It is mainly geared towards storing usernames and passwords, but essentially any string formatted data can be stored.
+# Tracribe
+A desktop utility app allowing the user to store information localy.
+It is mainly geared towards storing usernames and passwords, but essentially 
+any string formatted data can be stored.
+
+Tracribe works on macOS, Windows, and Linux.
+
+## Quick Overview
+
+```sh
+npm install
+npm run electron-pack
+```
 
 ![alt text](screenshot2.png "Login prompt")
 
