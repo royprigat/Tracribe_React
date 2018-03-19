@@ -12,6 +12,7 @@ npm install
 npm run electron-pack
 ```
 
+## Screenshots
 ![alt text](screenshot2.png "Login prompt")
 
 ![alt text](screenshot1.png "Main view")
