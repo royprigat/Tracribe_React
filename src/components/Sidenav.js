@@ -7,7 +7,7 @@ function Sidenav(props) {
   return (
     <div className="sidenav">
       <Logo />
-      <AddRecordForm />
+      <AddRecordForm onSubmit={props.onSubmit} />
     </div>
   );
 }

@@ -20,22 +20,10 @@ class AddRecordForm extends React.Component {
     this.resetAll = this.resetAll.bind(this);
   }
 
-  validateForm(e) {
-    e.preventDefault();
-    this.setState({ titleError: false, userError: false, passError: false });
-    if (e.target.user.value === '') {
-      this.setState({ userError: true });
-    } if (e.target.pass.value === '') {
-      this.setState({ passError: true });
-    } if(e.target.title.value === '') {
-      this.setState({ titleError: true});
+  resetAll = (e) => {
+    if (e) {
+      e.preventDefault();
     }
-  }
-
-  handleChange = (e,{ name, value }) => this.setState({ [name]: value });
-
-  resetAll = (e) => (
-    e.preventDefault(),
     this.setState({
     user: '',
     pass: '',
@@ -43,7 +31,24 @@ class AddRecordForm extends React.Component {
     titleError: false, 
     userError: false, 
     passError: false
-  }));
+  })};
+
+  validateForm = (e) => {
+    e.preventDefault();
+    this.setState({ titleError: false, userError: false, passError: false });
+    if (e.target.title.value === '') {
+      this.setState({ titleError: true });
+    } else if (e.target.user.value === '') {
+      this.setState({ userError: true });
+    } else if (e.target.pass.value === '') {
+      this.setState({ passError: true});
+    } else {
+      this.props.onSubmit(e.target);
+      this.resetAll();
+    }
+  }
+
+  handleChange = (e,{ name, value }) => this.setState({ [name]: value });
 
   render() {
     return (
