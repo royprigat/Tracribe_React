@@ -15,7 +15,7 @@ npm install
 npm run electron-pack
 ```
 This will create both a build(for react) and a dist directory.
-Inside the dist directory you will find the Tracribe executable(Currently only for MacOS).
+Inside the dist directory you will find the Tracribe executable(currently only for MacOS).
 
 ```
 tracribe_react
@@ -31,9 +31,10 @@ tracribe_react
             └── Tracribe
 ```
 
-### Login Config
+## Login Config
 In order to set the username and password for the app, change the 
 variables in the beginning of the LoginForm.js component.
+By default, "admin" is set for both.
 
 ## Screenshots
 
